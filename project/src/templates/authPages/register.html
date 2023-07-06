@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Özel CSS kodlarınızı buraya ekleyebilirsiniz */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Register Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:5000/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:5000/auth/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="/auth/register/submit">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" placeholder="Name" name="name" id="nameid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="surname">Surname:</label>
+                                <input type="text" class="form-control" placeholder="Surname" name="surname" id="surnameid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email" id="emailid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password" id="passwordid"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tel">Tel No:</label>
+                                <input type="tel" class="form-control" placeholder="Tel No" name="tel" id="telid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birth">Birth Date:</label>
+                                <input type="date" class="form-control" placeholder="Birth Date" name="birthDate" id="birthid"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Gender:</label>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="gender" id="maleid" value="male" required>
+                                    <labelfor="maleid" class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="gender" id="femaleid" value="female" required>
+                                    <label for="femaleid" class="form-check-label">Female</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="identity">Identity Number:</label>
+                                <input type="text" class="form-control" placeholder="Identity Number" name="identityNumber" id="identityhid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="street">Street:</label>
+                                <input type="text" class="form-control" placeholder="Street" name="street" id="streetid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="district">District:</label>
+                                <input type="text" class="form-control" placeholder="District" name="district" id="districtid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">City:</label>
+                                <input type="text" class="form-control" placeholder="City" name="city" id="cityid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country:</label>
+                                <input type="text" class="form-control" placeholder="Country" name="country" id="countryid" required>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Click</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lux Bank</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="/bootstrap.bundle.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="p-0 container-fluid">
+        <nav>
+            <div class="navrow row">
+                <div class="logo col-lg-2 col-md-2 col-sm-12">
+                    <a href="/" style="color: rgb(49, 49, 49); text-decoration: none;"><h2>LUX BANK</h2></a>
+                </div>
+                <div class="list col-lg-5 col-md-10 col-sm-12">
+                    <ul>
+                        <li><a href="/investment">Investments</a> </li>
+                        <li><a href="/credit">Credit</a></li>
+                        <li><a href="/card">Cards</a></li>
+                        <li><a href="/retirement">Retirement</a></li>
+                        <li><a href="/services">Payments & Services</a></li>
+                        <li><a href="/news">News</a> </li>
+                    </ul>
+                </div>
+                <form class="search col-lg-3 col-md-12 col-sm-12" action="/search" method="get">
+                    <input type="search" placeholder="Search">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="logging col-lg-2 col-md-12 col-sm-12">
+                    <ul id="list">
+                        <li><a  href="/user"><img id="pfp" src="" alt="pfp" width="40px" height="40px" style="border-radius: 100%;"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+                  </div>
+                <div class="carousel-inner" id="carousel-inner">
+                    <!-- <div class="carousel-item active" data-bs-interval="10000">
+                        <div style="background-color: gray; height: 500px; width: 100%;"></div>
+                    </div> -->
+                  <!-- <div class="carousel-item active" data-bs-interval="10000">
+                    <a href="/auth/register"><img src="joinus.png" height="500px" width="100%" class="d-block" alt="..."></a> 
+                  </div>
+                  <div class="carousel-item" data-bs-interval="10000">
+                    <img src="investmenteducations.png" height="500px" width="100%" class="d-block" alt="...">
+                  </div>    
+                  <div class="carousel-item" data-bs-interval="10000">
+                    <img src="investmenteducations.png" height="500px" width="100%" class="d-block" alt="...">
+                  </div>     -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+    
+        </main>
+
+        <footer style="border-top: 1px solid gray;" class="px-5 py-3">
+            <div class="row">
+                <div class="col-lg-2 d-flex justify-content-center">
+                    <h3>LUX Bank</h3>
+                </div>
+                <div class="col-lg-10">
+                   <p style="font-size: 14px; font-weight: 600;">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quibusdam doloremque, iure aliquam voluptatibus facere pariatur architecto repudiandae dolorum! Non dolor commodi laboriosam culpa ea, ducimus nisi eos. Nemo, officia.
+                    Nisi quisquam consectetur magni voluptatibus tenetur nobis nemo minima facilis a labore adipisci aut quae, consequuntur blanditiis repellat quia velit sit excepturi, beatae fuga magnam pariatur fugiat omnis rem! Ipsum!
+                    Fuga doloribus alias quo eius tenetur sapiente repudiandae laudantium, dolorum necessitatibus mollitia quae soluta rerum nam reiciendis cupiditate, incidunt accusamus corrupti accusantium temporibus quos, quisquam magni a. Provident, distinctio error?
+                   </p>
+                   
+                </div>
+            </div>
+            <div class=" mt-3 row">
+                <div class="col-lg-3">
+                    <ul>
+                        <li style="margin: 5px 0;"><span style="font-weight: 500;" class="inf">Contact: </span>+123 456 78 90</li>
+                        <li><span style="font-weight: 500;" class="inf">Address: </span>131 Main Dr E 	Miscouche 	Prince Edward Island Canada C0B 1T0</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                    <ul class="d-flex">
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;" class="fa-brands fa-instagram"></i></a> </i></li>
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;" class="fa-brands fa-facebook"></i></a></li>
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;" class="fa-brands fa-twitter"></i></a></li>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <ul class="d-flex">
+                        <li><a href="">Who are we?</a></li>
+                        <li><a href="">Why you must choose us?</a></li>
+                        <li><a href="">How we work?</a></li>
+                        <li><a href="">Wanna work with us?</a></li>
+                        <li><a href="">Future projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div> 
+    <script src="https://kit.fontawesome.com/f8bdf83e95.js" crossorigin="anonymous"></script>  
+    <script>
+        const carouselindicatiors = document.getElementById("carousel-indicators")
+        const carouselinner = document.getElementById("carousel-inner")
+
+        fetch("api/carousels", {method: "post"})
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.length)
+            if(data.length > 0){
+                data.forEach((item, i) => {
+                    if(i == 0){
+                    carouselindicatiors.innerHTML += `
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${i}" class="active" aria-current="true" aria-label="Slide ${i + 1}"></button>
+                    `
+                }
+                else{
+                    carouselindicatiors.innerHTML += `
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${i}" aria-label="Slide ${i + 1}"></button>
+                    `
+                }
+                const pfpPath = item.path;
+                const fileName = pfpPath.split("\\").slice(-1)[0];
+                if(i == 0){
+                    carouselinner.innerHTML += `
+                        <div class="carousel-item active" data-bs-interval="10000">
+                        <a href="${item.link ? item.link : "#"}"><img src="/${fileName}" height="500px" width="100%" class="d-block" alt="..."></a> 
+                      </div>
+                    `
+                }
+                else{
+                    carouselinner.innerHTML += `
+                        <div class="carousel-item" data-bs-interval="10000">
+                        <a href="${item.link ? item.link : "#"}"><img src="/${fileName}" height="500px" width="100%" class="d-block" alt="..."></a> 
+                      </div>
+                    `
+                    
+                }
+                })
+            }
+            else{
+                carouselinner.innerHTML += `
+                <div class="carousel-item active" data-bs-interval="10000">
+                        <div style="background-color: gray; height: 500px; width: 100%;"></div>
+                </div>
+                `
+            }
+
+        })
+        .catch(err => console.log(err))
+    </script> 
+    <script>
+        const pfp = document.getElementById("pfp")
+
+        fetch("/api/data", {method: "post"})
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            const pfpPath = data.user.pfpPath;
+
+// Dosya yolu boş ise veya tanımlanmamışsa varsayılan bir resim kullan
+if (!pfpPath) {
+  pfp.src = "https://api-private.atlassian.com/users/43f179105168e72ca93f2ae0df2dd491/avatar";
+} else {
+  const fileName = pfpPath.split("\\").slice(-1)[0];
+
+  // Resim dosyasının var olup olmadığını kontrol et
+  const img = new Image();
+  img.onload = function() {
+    // Resim dosyası mevcut
+    pfp.src = fileName;
+  };
+  img.onerror = function() {
+    // Resim dosyası mevcut değil, varsayılan resmi kullan
+    pfp.src = "https://api-private.atlassian.com/users/43f179105168e72ca93f2ae0df2dd491/avatar";
+  };
+  img.src = fileName;
+}
+        })
+        .catch(err => {console.log(err)})
+
+    </script>
+</body>
+</html>
+

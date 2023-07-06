@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lux Bank</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="usercartsec.css">
+    <script src="/bootstrap.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+
+        input#file-upload-button{
+            padding: 10px 5px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="p-0 container-fluid">
+        <nav>
+            <div class="navrow row">
+                <div class="logo col-lg-2 col-md-2 col-sm-12">
+                    <a href="/" style="color: rgb(49, 49, 49); text-decoration: none;"><h2>LUX BANK</h2></a>
+                </div>
+                <div class="list col-lg-5 col-md-10 col-sm-12">
+                    <ul>
+                        <li><a href="/investment">Investments</a> </li>
+                        <li><a href="/credit">Credit</a></li>
+                        <li><a href="/card">Cards</a></li>
+                        <li><a href="/retirement">Retirement</a></li>
+                        <li><a href="/services">Payments & Services</a></li>
+                        <li><a href="/news">News</a> </li>
+                    </ul>
+                </div>
+                <form class="search col-lg-3 col-md-12 col-sm-12" action="/search" method="get">
+                    <input type="search" placeholder="Search">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="logging col-lg-2 col-md-12 col-sm-12">
+                    <ul id="list">
+                        <li>
+                            <a href="/auth/logout">LOG OUT</a>
+                            <li><a  href="/user"><img id="pfp" src="" alt="pfp" width="40px" height="40px" style="border-radius: 100%;"></a></li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <main style="min-height: 600px;" class="px-5 py-5 mx-5">
+            <div class="row">
+                <ul style="border-bottom: 1px solid gray;" class="nav nav-pills pb-2 mb-3 w-100 d-flex justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="pills-balance-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-balance" type="button" role="tab" aria-controls="pills-balance"
+                            aria-selected="false">Balance</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-sendmoney-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-sendmoney" type="button" role="tab" aria-controls="pills-sendmoney"
+                            aria-selected="true">Send Money & History</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="pills-debt-tab" data-bs-toggle="pill" data-bs-target="#pills-debt"
+                            type="button" role="tab" aria-controls="pills-debt" aria-selected="false">Credit
+                            Debts</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card"
+                            aria-selected="false">Cards</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="pills-card-applications-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-card-applications" type="button" role="tab" aria-controls="pills-card-applications"
+                            aria-selected="false">Cards Applications</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-credit-applications-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-credit-applications" type="button" role="tab" aria-controls="pills-credit-applications"
+                            aria-selected="false">Credit Applications</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-settings-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-settings" type="button" role="tab" aria-controls="pills-settings"
+                            aria-selected="true">Settings</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade " id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab"
+                        tabindex="0">
+                        <div class="row mt-5">
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <h1 id="moneyValue">1000.23 $</h1>
+                            </div>
+                            <div class="col-lg-12 p-5">
+                                <ul>
+                                    <li id="name">Name : <span id="nameValue">Hüseyin Korkmaz</span></li>
+                                    <li id="iban">IBAN : <span id="ibanValue">TR123456789</span> <span><button
+                                                onclick="copyText()" id="copy"
+                                                style="border: 1px solid grey; padding: 0 3px;"
+                                                onclick="copy">Copy</button></span> 
+                                    </li>
+                                    <li id="email">Email: <span id="emailValue">email@email</span></li>
+                                    <li id="phone">Phone: <span id="phoneValue">905421531</span></li>
+                                    <li id="adress">Adress :
+                                        <ul id="adressValue">
+                                            <li id="street">Street: <span id="streetValue">İNÖNÜ C N 186</span></li>
+                                            <li id="district">District: <span id="districtValue">Merkez</span></li>
+                                            <li id="city">City: <span id="cityValue">Malatya</span></li>
+                                            <li id="country">Country : <span id="countryValue">Turkey</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-sendmoney" role="tabpanel" aria-labelledby="pills-sendmoney-tab" tabindex="0">
+                        <div class="row mt-2">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <h1>Send Money & History</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-lg-5">
+                                <form class="d-flex flex-column" id="sendmoneyform">
+                                    <input style="border: 1px solid white; padding: 10px;" type="text" id="ibaninput" placeholder="IBAN:" required>
+                                    <input style="border: 1px solid white; padding: 10px;" type="text" id="moneyinput" placeholder="Money:" required>
+                                    <input style="border: 1px solid white; padding: 10px;" type="text" id="noteinput" placeholder="Note (Optional):">
+                                    <button type="submit">Send</button>
+                                </form>
+                            </div>
+                            <div id="moneyhistory" class="col-lg-7" style="overflow-y:scroll; max-height: 380px;">
+                                <!-- <ul>
+                                    <li>
+                                        <span style="font-weight: 600; font-size: 18px;">Sender: </span>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <span style="font-weight: 600; font-size: 18px;">Receiver: </span>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <span style="font-weight: 600; font-size: 18px;">Amount: </span>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <span style="font-weight: 600; font-size: 18px;">Note:</span>
+                                        <span></span>
+                                    </li>
+                                    <li>
+                                        <span style="font-weight: 600; font-size: 18px;">History</span>
+                                        <span></span>
+                                    </li>
+                                </ul> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-debt" role="tabpanel" aria-labelledby="pills-debt-tab"tabindex="0">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <h1>Debt</h1>
+                            </div>
+                        </div>
+
+                        <div class="row" id="debtsPlace">
+                            <!-- <div class="col-lg-12">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span>Credit Name:</span>
+                                        <span style="font-weight: 550;">Konut Kredisi</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Remaining Payment Amount:</span>
+                                        <span style="font-weight: 550;">409000.99$</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Remaining Month & Payed:</span>
+                                        <span style="font-weight: 550;">30 & 2</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Date:</span>
+                                        <span style="font-weight: 550;">2023-06-23</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span><button class="btn btn-primary">Pay This Month</button></span>
+                                        <span style="font-weight: 550;"><button class="btn btn-success">Pay All</button></span>
+                                    </li>
+                                  </ul>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab" tabindex="0">
+                        <div class="row mt-2">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <h1>Cards</h1>
+                                </div>
+                            </div>
+                            <div class="row cardPlace" id="cardPlace">
+                                <!-- <div style="position: relative;" class="d-flex flex-column align-items-center col-lg-12 col-sm-12">
+                                    <div class="cardInfo my-2 d-flex">
+                                       
+                                        <button class="but" id="leftBut" onclick="changeCard('${i}front', '${i}back')"><</button>
+                                        <div class="frontCard activeCard card" id="${i}front">
+                                            <i class="fa-solid fa-microchip cardElement micro"></i>
+                                            <i class="fa-solid fa-wifi cardElement wifi"></i>
+                                            <h1 class="cardElement bankName">LUX Bank</h1>
+                                            <span class="cardElement indicator ">${item.cardInfos.cardType.toUpperCase()}</span>
+                                            <i class="fa-brands fa-cc-visa cardElement visa"></i>
+                                            <i class="fa-brands fa-cc-mastercard cardElement master"></i>
+                                        </div>
+                                        <div class="backCard deActiveCard card" id="${i}back">
+                                            <span class="cardNumber cardElement">${item.cardInfos.cardNumber}</span>
+                                            <span class="cardDate cardElement">${item.cardInfos.expirationDate.split("/")[0] + "/" + item.cardInfos.expirationDate.split("/")[1][2]+item.cardInfos.expirationDate.split("/")[1][3]}</span>
+                                            <span class="cvv cardElement">${item.cardInfos.cvv}</span>
+                                            <span class="name cardElement">${item.cardInfos.cardName}</span>
+                                        </div>
+                                        <button class="but" id="rightBut" onclick="changeCard('${i}front', '${i}back')">></button>
+                                        <button style="padding: 3px 5px; position: absolute; right: 160px; border: 1px solid black; border-radius: 12px;" class="align-self-center">Remove Card</button>
+                                        <button style="padding: 3px 5px; position: absolute; right: 0; border: 1px solid black; border-radius: 12px;" class="align-self-center">Change Card Name</button>
+                                    </div>
+
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-card-applications" role="tabpanel" aria-labelledby="pills-card-applications-tab" tabindex="0">
+                        <div class="row mt-2">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <h1>Card Applications</h1>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4" id="applicationsPlace">
+                                <!-- <div class="col-lg-4 d-flex justify-content-center" >
+                                    <ul>
+                                        <li>Application ID :</li>
+                                        <li>Card Type :</li>
+                                        <li>Card Name :</li>
+                                        <li>Limit :</li>
+                                        <li>Status : <span class="cancelled bg-danger" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">CANCELLED</span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-lg-4 d-flex justify-content-center" >
+                                    <ul>
+                                        <li>Application ID :</li>
+                                        <li>Card Type :</li>
+                                        <li>Card Name :</li>
+                                        <li>Limit :</li>
+                                        <li>Status : <span class="success bg-success" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">ACCEPTED</span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 col-lg-4 d-flex justify-content-center">
+                                    <ul>
+                                        <li>Application ID :</li>
+                                        <li>Card Type :</li>
+                                        <li>Card Name :</li>
+                                        <li>Limit :</li>
+                                        <li>Status : <span class="waiting bg-warning" style="padding: 5px 10px; border-radius: 30px; font-weight: 600;">WAITING</span></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade show active" id="pills-credit-applications" role="tabpanel" aria-labelledby="pills-credit-applications-tab" tabindex="1">
+                        <div class="row mt-2">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <h1>Credit Applications</h1>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4" id="creditapplicationsPlace">
+                                <!-- <div class="col-lg-4 my-4">
+                                    <div class="card" style="width: 18rem; border: none;">
+                                          <img class="card-img-top" src="..." alt="Card image cap">
+                                          <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <p class="card-text">
+                                                      <ul style="list-style: disc; margin: 0; padding: 0;">
+                                                            <li><span>Amount: </span> <span>1000</span></li>
+                                                            <li><span>Interest: </span> <span>7</span></li>
+                                                            <li><span>Sum Amount: </span>1070 <span></span></li>
+                                                            <li><span>Payment Per 1 Month: </span>89<span></span></li>
+                                                            <li style="margin-top: 5px;">Status : <span class="cancelled bg-danger" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">CANCELLED</span></li>
+                                                      </ul>
+                                                </p>
+                                          </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-lg-4 my-4">
+                                    <div class="card" style="width: 18rem; border: none;">
+                                          <img class="card-img-top" src="..." alt="Card image cap">
+                                          <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <p class="card-text">
+                                                      <ul style="list-style: disc; margin: 0; padding: 0;">
+                                                            <li><span>Amount: </span> <span>1000</span></li>
+                                                            <li><span>Interest: </span> <span>7</span></li>
+                                                            <li><span>Sum Amount: </span>1070 <span></span></li>
+                                                            <li><span>Payment Per 1 Month: </span>89<span></span></li>
+                                                            <li style="margin-top: 5px;">Status : <span class="success bg-success" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">ACCEPTED</span></li>                                
+                                                      </ul>
+                                                </p>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 my-4">
+                                    <div class="card" style="width: 18rem; border: none;">
+                                          <img class="card-img-top" src="..." alt="Card image cap">
+                                          <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <p class="card-text">
+                                                      <ul style="list-style: disc; margin: 0; padding: 0;">
+                                                            <li><span>Amount: </span> <span>1000</span></li>
+                                                            <li><span>Interest: </span> <span>7</span></li>
+                                                            <li><span>Sum Amount: </span>1070 <span></span></li>
+                                                            <li><span>Payment Per 1 Month: </span>89<span></span></li>
+                                                            <li style="margin-top: 5px;">Status : <span class="waiting bg-warning" style="padding: 5px 10px; border-radius: 30px; font-weight: 600;">WAITING</span></li>
+                                                      </ul>
+                                                </p>
+                                          </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab" tabindex="0">
+                        <div class="row mt-2">
+                            <div class="row">
+                                <div class="col-lg-12 d-flex justify-content-center">
+                                    <h1>Settings</h1>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4 d-flex flex-row" id="settings">
+                                <div class="col-lg-6 d-flex justify-content-center">
+                                    <form id="updateForm" class="d-flex">
+                                        <div class="d-flex flex-column text-end">
+                                            <label style="margin: 4.7px 0;" for="email">Email: </label>
+                                            <label style="margin: 4.7px 0;" for="tel">Telephone: </label>
+                                            <label style="margin: 4.7px 0;" for="bDate">Birth Date: </label>
+                                            <label style="margin: 4.7px 0;" for="oldPassword">Old Password: </label>
+                                            <label style="margin: 4.7px 0;" for="newPassword">New Password: </label>
+                                            <label style="margin: 4.7px 0;" for="confirmPassword">Correct Password: </label>
+                                            <label style="margin: 5.3px 0;" for="street">Street: </label>
+                                            <label style="margin: 5.3px 0;" for="district">District: </label>
+                                            <label style="margin: 5.3px 0;" for="city">City: </label>
+                                            <label style="margin: 5.3px 0;" for="country">Country: </label>
+                                        </div>
+                                        <div class="inputs d-flex flex-column mx-3">
+                                            <input id="update-email" class="my-1" type="email" name="email" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-tel" class="my-1" type="tel" name="tel" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-bDate" class="my-1" type="date" name="bDate" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-oldPassword" class="my-1" type="password" name="oldPassword" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-newPassword" class="my-1" type="password" name="newPassword" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-confirmPassword" class="my-1" type="password" name="confirmPassword" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-street" class="my-1" type="text" name="street" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-district" class="my-1" type="text" name="district" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-city" class="my-1" type="text" name="city" style="border: 1px solid black; border-radius: 10px;">
+                                            <input id="update-country" class="my-1" type="text" name="country" style="border: 1px solid black; border-radius: 10px;">
+                                            <input type="submit" value="Change" style="border: 1px solid black; border-radius: 15px;">
+                                        </div>
+                                    </form>
+                                </div> 
+                                <div class="col-lg-6 d-flex flex-column align-items-center">
+                                    <form action="/user/pfp" method="post" name="pfp" enctype="multipart/form-data">
+                                        <label for="pfp">Change Profile Photo: </label>
+                                        <input type="file" name="pfp" id="pfp-input">
+                                        <button style="padding: 5px 10px; margin: 10px 0;" type="submit" class="align-self-start">Upload</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+
+        <footer style="position: relative; bottom: 0; border-top: 1px solid gray;" class="px-5 py-3">
+            <div class="row">
+                <div class="col-lg-2 d-flex justify-content-center">
+                    <h3>LUX Bank</h3>
+                </div>
+                <div class="col-lg-10">
+                    <p style="font-size: 14px; font-weight: 600;">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo quibusdam doloremque, iure
+                        aliquam voluptatibus facere pariatur architecto repudiandae dolorum! Non dolor commodi
+                        laboriosam culpa ea, ducimus nisi eos. Nemo, officia.
+                        Nisi quisquam consectetur magni voluptatibus tenetur nobis nemo minima facilis a labore adipisci
+                        aut quae, consequuntur blanditiis repellat quia velit sit excepturi, beatae fuga magnam pariatur
+                        fugiat omnis rem! Ipsum!
+                        Fuga doloribus alias quo eius tenetur sapiente repudiandae laudantium, dolorum necessitatibus
+                        mollitia quae soluta rerum nam reiciendis cupiditate, incidunt accusamus corrupti accusantium
+                        temporibus quos, quisquam magni a. Provident, distinctio error?
+                    </p>
+
+                </div>
+            </div>
+            <div class=" mt-3 row">
+                <div class="col-lg-3">
+                    <ul>
+                        <li style="margin: 5px 0;"><span style="font-weight: 500;" class="inf">Contact: </span>+123 456
+                            78 90</li>
+                        <li><span style="font-weight: 500;" class="inf">Address: </span>131 Main Dr E Miscouche Prince
+                            Edward Island Canada C0B 1T0</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 d-flex justify-content-center align-items-center">
+                    <ul class="d-flex">
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;"
+                                    class="fa-brands fa-instagram"></i></a> </i></li>
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;"
+                                    class="fa-brands fa-facebook"></i></a></li>
+                        <li style="margin: 0px 20px;"><a href=""><i style="font-size: 30px;"
+                                    class="fa-brands fa-twitter"></i></a></li>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <ul class="d-flex">
+                        <li><a href="">Who are we?</a></li>
+                        <li><a href="">Why you must choose us?</a></li>
+                        <li><a href="">How we work?</a></li>
+                        <li><a href="">Wanna work with us?</a></li>
+                        <li><a href="">Future projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+      const creditapplicationsPlace = document.getElementById("creditapplicationsPlace");
+
+fetch("/credit/usercreditapplication", { method: "post" })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    if(data.applications.length > 0){
+      data.applications.forEach(application => {
+      data.credits.forEach(credit => {
+        if (credit._id === application.creditID) {
+          console.log(`[CREDIT] ${credit}`);
+          switch (application.isAccepted) {
+            case "waiting":
+              // Beklemedeki kredi başvuruları için kart oluştur
+              creditapplicationsPlace.innerHTML += `
+                <div class="col-lg-4 my-4 d-flex justify-content-center">
+                  <div class="card" style="width: 18rem; border: none;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${credit.creditname}</h5>
+                      <p class="card-text">${credit.creditdescription}</p>
+                      <p class="card-text">
+                        <ul style="list-style: disc; margin: 0; padding: 0;">
+                          <li><span>Amount: </span><span>${parseFloat(credit.creditamount.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Interest: </span><span>${credit.creditinterest.$numberDecimal}</span></li>
+                          <li><span>Sum Amount: </span>${parseFloat(credit.sumAmountToPay.$numberDecimal).toFixed(2)}<span></span></li>
+                          <li><span>Payment Per ${credit.creditinstallmentmonth} Month: </span>${parseFloat(credit.paymentAmountPerInterval.$numberDecimal).toFixed(2)}<span></span></li>
+                          <li><span>Expiration Date: </span><span>${credit.creditexpirationmonth}</span></li>
+                          <li style="margin-top: 5px;">Status: <span class="waiting bg-warning" style="padding: 5px 10px; border-radius: 30px; font-weight: 600;">WAITING</span></li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              `;
+              break;
+            case "accepted":
+              // Kabul edilen kredi başvuruları için kart oluştur
+              creditapplicationsPlace.innerHTML += `
+                <div class="col-lg-4 my-4 d-flex justify-content-center">
+                  <div class="card" style="width: 18rem; border: none;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${credit.creditname}</h5>
+                      <p class="card-text">${credit.creditdescription}</p>
+                      <p class="card-text">
+                        <ul style="list-style: disc; margin: 0; padding: 0;">
+                          <li><span>Amount: </span><span>${parseFloat(credit.creditamount.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Interest: </span><span>${credit.creditinterest.$numberDecimal}</span></li>
+                          <li><span>Sum Amount: </span><span>${parseFloat(credit.sumAmountToPay.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Payment Per ${credit.creditinstallmentmonth} Month: </span><span>${parseFloat(credit.paymentAmountPerInterval.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Expiration Date: </span><span>${credit.creditexpirationmonth}</span></li>
+                          <li style="margin-top: 5px;">Status: <span class="success bg-success" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">ACCEPTED</span></li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              `;
+              break;
+            case "cancelled":
+              // İptal edilen kredi başvuruları için kart oluştur
+              creditapplicationsPlace.innerHTML += `
+                <div class="col-lg-4 my-4 d-flex justify-content-center">
+                  <div class="card" style="width: 18rem; border: none;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">${credit.creditname}</h5>
+                      <p class="card-text">${credit.creditdescription}</p>
+                      <p class="card-text">
+                        <ul style="list-style: disc; margin: 0; padding: 0;">
+                          <li><span>Amount: </span><span>${parseFloat(credit.creditamount.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Interest: </span><span>${credit.creditinterest.$numberDecimal}</span></li>
+                          <li><span>Sum Amount: </span><span>${parseFloat(credit.sumAmountToPay.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Payment Per ${credit.creditinstallmentmonth} Month: </span><span>${parseFloat(credit.paymentAmountPerInterval.$numberDecimal).toFixed(2)}</span></li>
+                          <li><span>Expiration Date: </span><span>${credit.creditexpirationmonth}</span></li>
+                          <li style="margin-top: 5px;">Status: <span class="cancelled bg-danger" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">CANCELLED</span></li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              `;
+              break;
+          }
+        }
+      });
+    });
+  
+    }
+    else{
+      creditapplicationsPlace.innerHTML = "<h1>NO APPLICATION FOUND</h1>"
+    }
+  })
+  .catch(err => console.log(`[AN ERROR OCCURRED ON CREDIT USER APPLICATION] ${err}`));
+
+    </script>
+
+
+    <script>
+        let moneyVal = 0; // Başlangıçta para değeri 0 olarak atanıyor.
+
+const moneyhistory = document.getElementById("moneyhistory");
+fetch("/user/moneyhistory", { method: "post" }) // Sunucudan kullanıcının para geçmişini getirmek için istek yapılıyor
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    data.moneydata.forEach(item => {
+      console.log(item);
+      // Para geçmişi verileri için her bir öğe için uygun HTML içeriği oluşturuluyor ve moneyhistory elementine ekleniyor
+      moneyhistory.innerHTML += `
+        <ul>
+          <li style="font-weight: 600; font-size: 30px;">${item.sender.id === data.userId ? "MONEY SENT" : "MONEY RECEIVED"}</li>
+          <li>
+            <span style="font-weight: 600; font-size: 18px;">Sender Name: </span>
+            <span>${item.sender.name} ${item.sender.surname}</span>
+          </li>
+          <li>
+            <span style="font-weight: 600; font-size: 18px;">Receiver Name: </span>
+            <span>${item.receiver.name} ${item.receiver.surname}</span>
+          </li>
+          <li>
+            <span style="font-weight: 600; font-size: 18px;">Amount: </span>
+            <span>${item.sender.amount.$numberDecimal}</span>
+          </li>
+          ${item.sender.note ? `<li>
+            <span style="font-weight: 600; font-size: 18px;">Note: </span>
+            <span>${item.sender.note}</span>
+          </li>` : ""}
+          <li>
+            <span style="font-weight: 600; font-size: 18px;">History: </span>
+            <span>${item.createdAt}</span>
+          </li>
+        </ul>
+      `;
+    });
+  })
+  .catch(err => console.log(`[ERROR MONEY HISTORY] ${err}`));
+
+fetch("/api/data", { method: "post" }) // Sunucudan kullanıcının bakiyesini getirmek için istek yapılıyor
+  .then(res => res.json())
+  .then(data => {
+    moneyVal = data.balance.balance.$numberDecimal; // Gelen bakiye değeri moneyVal değişkenine atanıyor
+    const moneyForm = document.getElementById("sendmoneyform");
+    moneyForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const moneyInput = parseFloat(document.getElementById("moneyinput").value).toFixed(2); // Girilen para miktarı alınıyor ve ondalık hale getiriliyor
+      const ibanInput = document.getElementById("ibaninput").value; // Girilen IBAN alınıyor
+      const noteInput = document.getElementById("noteinput").value; // Girilen not alınıyor
+      
+      if (parseFloat(moneyInput) <= parseFloat(moneyVal)) { // Gönderilmek istenen miktar, kullanıcının bakiyesinden küçük veya eşitse
+        let params = {};
+        if (noteInput == "") {
+          params = {
+            amount: moneyInput,
+            iban: ibanInput
+          };
+        } else {
+          params = {
+            amount: moneyInput,
+            iban: ibanInput,
+            note: noteInput
+          };
+        }
+        const urlParams = new URLSearchParams(params);
+        const url = `/user/sendmoney?${urlParams}`;
+        console.log(url);
+        fetch(url, { method: "post" }) // Para göndermek için istek yapılıyor
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data.msg === "success") { // Para başarıyla gönderildiyse
+              alert("Money successfully sent");
+              location.reload();
+            } else if (data.msg === "false-iban") { // Geçersiz bir IBAN girildiyse
+              alert("Please enter a true IBAN number");
+            } else if (data.msg === "same-iban") { // Kendi IBAN'ınızı girdiyseniz
+              alert("Do not enter your own IBAN");
+            } else { // Başka bir hata durumunda
+              alert("An Error Occurred, Try Again Later");
+            }
+          })
+          .catch(err => console.log(err));
+      } else { // Gönderilmek istenen miktar, kullanıcının bakiyesinden büyükse
+        alert("There is not enough money in your balance.");
+      }
+    });
+  })
+  .catch(err => console.log(err));
+
+    </script>
+
+    <script>
+      const u_form = document.getElementById("updateForm"); // Güncelleme formunu seç
+
+u_form.addEventListener("submit", (e) => { // Form gönderildiğinde
+  e.preventDefault(); // Formun varsayılan davranışını engelle
+
+  // Güncellenecek verileri al
+  const u_email = {
+    value: document.getElementById("update-email").value,
+    type: "email"
+  };
+  const u_tel = {
+    value: document.getElementById("update-tel").value,
+    type: "tel"
+  };
+  const u_bDate = {
+    value: document.getElementById("update-bDate").value,
+    type: "bDate"
+  };
+  const u_password = {
+    oldPassword: document.getElementById("update-oldPassword").value,
+    newPassword: document.getElementById("update-newPassword").value,
+    confirmPassword: document.getElementById("update-confirmPassword").value,
+    type: "password"
+  };
+  const u_street = {
+    value: document.getElementById("update-street").value,
+    type: "street"
+  };
+  const u_district = {
+    value: document.getElementById("update-district").value,
+    type: "district"
+  };
+  const u_city = {
+    value: document.getElementById("update-city").value,
+    type: "city"
+  };
+  const u_country = {
+    value: document.getElementById("update-country").value,
+    type: "country"
+  };
+
+  let filteredData = []; // Filtrelenmiş verileri saklamak için boş bir dizi oluştur
+  const data = [u_email, u_tel, u_bDate, u_street, u_district, u_city, u_country]; // Tüm verileri bir diziye topla
+
+  filteredData = data.filter(item => item.value !== ""); // Boş olmayan verileri filtrele ve filteredData'ya ata
+
+  if (
+    (u_password.oldPassword !== "" && u_password.newPassword === "" && u_password.confirmPassword === "") ||
+    (u_password.oldPassword === "" && u_password.newPassword !== "" && u_password.confirmPassword === "") ||
+    (u_password.oldPassword === "" && u_password.newPassword === "" && u_password.confirmPassword !== "")
+  ) {
+    alert("All password inputs must be filled"); // Eğer parola alanlarından biri boşsa hata mesajı göster ve işlemi durdur
+    return;
+  } else if (
+    (u_password.oldPassword !== "" && u_password.newPassword !== "" && u_password.confirmPassword === "") ||
+    (u_password.oldPassword !== "" && u_password.newPassword === "" && u_password.confirmPassword !== "") ||
+    (u_password.oldPassword === "" && u_password.newPassword !== "" && u_password.confirmPassword !== "")
+  ) {
+    alert("All password inputs must be filled"); // Eğer parola alanlarından biri boşsa hata mesajı göster ve işlemi durdur
+    return;
+  } else {
+    if (u_password.newPassword !== u_password.confirmPassword) {
+      alert("Password has not matched"); // Yeni parolalar eşleşmiyorsa hata mesajı göster ve işlemi durdur
+      return;
+    } else if (u_password.newPassword !== "" && u_password.oldPassword !== "" && u_password.confirmPassword !== "") {
+      filteredData.push(u_password); // Yeni parola girildiyse ve tüm alanlar doluysa, filteredData'ya parolayı ekle
+    }
+  }
+
+  if (filteredData.length > 0) { // Filtrelenmiş veriler varsa
+    fetch("user/userupdate", { // Verileri güncelleme endpointine gönder
+      method: "post",
+      body: JSON.stringify(filteredData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.msg === "success") {
+          alert("Successfully Changed"); // Veriler başarıyla güncellendiğinde başarılı mesajı göster ve sayfayı yeniden yükle
+          location.reload();
+        } else if (data.msg === "falsepassword") {
+          alert("False Old Password"); // Yanlış eski parola girildiyse hata mesajı göster
+        } else if (data.msg === "same-email") {
+          alert("There is a user with the same email"); // Aynı e-posta ile kayıtlı bir kullanıcı varsa hata mesajı göster
+        } else if (data.msg === "same-tel") {
+          alert("There is a user with the same phone number"); // Aynı telefon numarası ile kayıtlı bir kullanıcı varsa hata mesajı göster
+        } else {
+          alert("There is a user with the same value"); // Aynı değere sahip başka bir kullanıcı varsa hata mesajı göster
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+});
+
+    </script>
+
+    <script>
+       const applicationsPlace = document.getElementById("applicationsPlace");
+
+// "/card/userapplications" endpointine POST isteği gönderiyor
+fetch("/card/userapplications", { method: "post" })
+  .then(res => res.json()) // Yanıtı JSON formatına dönüştürüyor
+  .then(data => {
+    console.log(data); // Veriyi konsola yazdırıyor
+
+    // Verinin uzunluğuna göre ilgili HTML içeriğini oluşturuyor
+    if (data.length === 0) {
+      applicationsPlace.innerHTML = `<h1>NO APPLICATION FOUND</h1>`;
+    } else {
+      data.forEach(item => {
+        // Her bir veri öğesi için ilgili HTML içeriğini oluşturuyor
+        if (item.isAccepted === "waiting") {
+          applicationsPlace.innerHTML += `
+            <div class="col-lg-4 d-flex justify-content-center" >
+                <ul>
+                    <li>Application ID : ${item._id}</li>
+                    <li>Card Type : ${item.cardInfos.cardType.toUpperCase()}</li>
+                    <li>Card Name : ${item.cardInfos.cardName}</li>
+                    <li>Limit : ${item.cardInfos.limit.$numberDecimal}</li>
+                    <li>Status : <span class="waiting bg-warning" style="padding: 5px 10px; border-radius: 30px; font-weight: 600;">WAITING</span></li>
+                </ul>
+            </div>
+          `;
+        } else if (item.isAccepted === "cancelled") {
+          applicationsPlace.innerHTML += `
+            <div class="col-lg-4 d-flex justify-content-center" >
+                <ul>
+                    <li>Application ID : ${item._id}</li>
+                    <li>Card Type : ${item.cardInfos.cardType.toUpperCase()}</li>
+                    <li>Card Name : ${item.cardInfos.cardName}</li>
+                    <li>Limit : ${item.cardInfos.limit.$numberDecimal}</li>
+                    <li>Status : <span class="cancelled bg-danger" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">CANCELLED</span></li>
+                </ul>
+            </div>
+          `;
+        } else if (item.isAccepted === "accepted") {
+          applicationsPlace.innerHTML += `
+            <div class="col-lg-4 col-lg-4 d-flex justify-content-center" >
+                <ul>
+                    <li>Application ID : ${item._id}</li>
+                    <li>Card Type : ${item.cardInfos.cardType.toUpperCase()}</li>
+                    <li>Card Name : ${item.cardInfos.cardName}</li>
+                    <li>Limit : ${item.cardInfos.limit.$numberDecimal}</li>
+                    <li>Status : <span class="success bg-success" style="padding: 5px 10px; border-radius: 30px; color: white; font-weight: 600;">ACCEPTED</span></li>
+                </ul>
+            </div>
+          `;
+        }
+      });
+    }
+  })
+  .catch(err => console.log(err)); // Hataları konsola yazdırıyor
+
+    </script>
+
+    <script>
+       const changeCard = (front, back) => {
+  // İlgili elementleri al
+  const frontCard = document.getElementById(front);
+  const backCard = document.getElementById(back);
+  
+  // Eğer frontCard "deActiveCard" sınıfını içeriyorsa
+  if (frontCard.classList.contains("deActiveCard")) {
+    // activeCard sınıfını ekle, deActiveCard sınıfını kaldır
+    frontCard.classList.add("activeCard");
+    frontCard.classList.remove("deActiveCard");
+  } else {
+    // activeCard sınıfını kaldır, deActiveCard sınıfını ekle
+    frontCard.classList.remove("activeCard");
+    frontCard.classList.add("deActiveCard");
+  }
+
+  // Eğer backCard "deActiveCard" sınıfını içeriyorsa
+  if (backCard.classList.contains("deActiveCard")) {
+    // activeCard sınıfını ekle, deActiveCard sınıfını kaldır
+    backCard.classList.add("activeCard");
+    backCard.classList.remove("deActiveCard");
+  } else {
+    // activeCard sınıfını kaldır, deActiveCard sınıfını ekle
+    backCard.classList.remove("activeCard");
+    backCard.classList.add("deActiveCard");
+  }
+};
+
+const removeCard = (id) => {
+  // Kullanıcıya onay için bir pencere göster
+  const confirmed = confirm("Are you sure?");
+  if (confirmed) {
+    // Silme işlemi için parametreleri ayarla
+    const params = {
+      id
+    };
+    const urlparams = new URLSearchParams(params);
+    const url = `/card/removecard?${urlparams}`;
+
+    // URL'yi kullanarak fetch isteği gönder
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        if (data.msg === "success") {
+          alert("Successfully Deleted");
+          location.reload();
+        } else if (data.msg === "failed") {
+          alert("An Error Occurred. Try Again Later");
+          // location.reload()
+        }
+      })
+      .catch(err => console.log(`[ERROR ON] ${url} ${err}`));
+  }
+};
+
+const changeCardName = (id) => {
+  // Kullanıcıdan yeni kart adını al
+  const input = prompt("New Card Name: ");
+  if (!input) throw new Error("Null Value");
+
+  // Güncelleme işlemi için parametreleri ayarla
+  const params = {
+    id,
+    value: input
+  };
+  const urlparams = new URLSearchParams(params);
+  const url = `/card/updatecardname?${urlparams}`;
+
+  // URL'yi kullanarak fetch isteği gönder
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.msg === "success") {
+        alert("Successfully Updated");
+        location.reload();
+      } else if (data.msg === "failed") {
+        alert("An Error Occurred. Try Again Later");
+        // location.reload()
+      }
+    })
+    .catch(err => console.log(`[ERROR ON] ${url} ${err}`));
+};
+
+const changeLimit = (id) => {
+  // Kullanıcıdan yeni limiti al
+  const input = prompt("New Limit: ");
+
+  // Güncelleme işlemi için parametreleri ayarla
+  const params = {
+    id,
+    value: input
+  };
+  const urlparams = new URLSearchParams(params);
+  const url = `/card/updatecardlimit?${urlparams}`;
+
+  // URL'yi kullanarak fetch isteği gönder
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.msg === "success") {
+        alert("Successfully Updated");
+        location.reload();
+      } else if (data.msg === "failed") {
+        alert("An Error Occurred. Try Again Later");
+        // location.reload()
+      }
+    })
+    .catch(err => console.log(`[ERROR ON] ${url} ${err}`));
+};
+
+const cardPlace = document.getElementById("cardPlace");
+// Kartları almak için fetch isteği gönder
+fetch("/card/card", {
+  method: "post"
+})
+  .then(res => res.json())
+  .then(data => {
+    if (data.msg === "no-card-found") {
+      // Kart bulunamadığında ilgili mesajı göster
+      cardPlace.innerHTML = `<h1>NO CARD FOUND</h1>`;
+    } else {
+      // Her bir kart için HTML içeriği oluştur
+      data.forEach((item, i) => {
+        cardPlace.innerHTML += `
+          <div style="position: relative;" class="d-flex flex-column align-items-center col-lg-12 col-sm-12">
+            <div class="cardInfo my-2 d-flex">
+              <button class="but" id="leftBut" onclick="changeCard('${i}front', '${i}back')"><</button>
+              <div class="frontCard activeCard cardd" id="${i}front">
+                <i class="fa-solid fa-microchip cardElement micro"></i>
+                <i class="fa-solid fa-wifi cardElement wifi"></i>
+                <h1 class="cardElement bankName">LUX Bank</h1>
+                <span class="cardElement indicator ">${item.cardInfos.cardType.toUpperCase()}</span>
+                <i class="fa-brands fa-cc-visa cardElement visa"></i>
+                <i class="fa-brands fa-cc-mastercard cardElement master"></i>
+              </div>
+              <div class="backCard deActiveCard cardd" id="${i}back">
+                <span class="cardNumber cardElement">${item.cardInfos.cardNumber}</span>
+                <span class="cardDate cardElement">${item.cardInfos.expirationDate.split("/")[0] + "/" + item.cardInfos.expirationDate.split("/")[1][2]+item.cardInfos.expirationDate.split("/")[1][3]}</span>
+                <span class="cvv cardElement">${item.cardInfos.cvv}</span>
+                <span class="name cardElement">${item.cardInfos.cardName}</span>
+              </div>
+              <button class="but" id="rightBut" onclick="changeCard('${i}front', '${i}back')">></button>
+              <button onclick="removeCard('${item._id}')" style="padding: 3px 5px; position: absolute; right: 285px; border: 1px solid black; border-radius: 12px;" class="align-self-center">Remove Card</button>
+              <button onclick="changeCardName('${item._id}')" style="padding: 3px 5px; position: absolute; right: 125px; border: 1px solid black; border-radius: 12px;" class="align-self-center">Change Card Name</button>
+              <span style="position: absolute; right: 0;">Limit: ${item.cardInfos.limit.$numberDecimal}</span>
+              <button onclick="changeLimit('${item._id}')" style="padding: 3px 5px; position: absolute; right: 0; border: 1px solid black; border-radius: 12px;" class="align-self-center">Change Limit</button>
+            </div>
+          </div>`;
+      });
+    }
+  })
+  .catch(err => console.log(err));
+
+    </script>
+
+    <script>
+const payall = (id, paymentAmount, money) => {
+  // Kullanıcıdan onay al
+  const confirmed = confirm("Are you sure?");
+
+  if (confirmed) {
+    // Ödeme miktarını ve mevcut paranın tipini dönüştür
+    paymentAmount = parseFloat(paymentAmount);
+    money = parseFloat(money);
+
+    // Paranın ödeme miktarından fazla olup olmadığını kontrol et
+    if (money >= paymentAmount) {
+      const params = {
+        id
+      };
+
+      const urlParams = new URLSearchParams(params);
+      const url = `/credit/payall?${urlParams}`;
+
+      // Ödemeyi yapmak için fetch isteği gönder
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          switch (data.msg) {
+            case "success":
+              alert("Congrulations! You have finished your credit");
+              location.reload();
+              break;
+            default:
+              alert("An error occurred " + data.msg);
+          }
+        });
+    } else {
+      alert("You dont have enough money!");
+    }
+  }
+};
+
+const paymonth = (id, paymentAmount, money) => {
+  // Ödeme miktarını ve mevcut paranın tipini dönüştür
+  paymentAmountF = parseFloat(paymentAmount);
+  moneyF = parseFloat(money);
+
+  // Kullanıcıdan onay al
+  const confirmed = confirm("Are you sure?");
+
+  if (confirmed) {
+    // Paranın ödeme miktarından fazla olup olmadığını kontrol et
+    if (moneyF >= paymentAmountF) {
+      const params = {
+        id
+      };
+
+      const urlParams = new URLSearchParams(params);
+      const url = `/credit/paymonth?${urlParams}`;
+
+      // Ödemeyi yapmak için fetch isteği gönder
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          switch (data.msg) {
+            case "success":
+              alert("Successfully Payed");
+              location.reload();
+              break;
+            case "successandfinished":
+              alert("Congrulations! You have finished your credit");
+              location.reload();
+              break;
+            case "no-payment-time":
+              alert(
+                "Your payment time has not come. Try again at this date: ." +
+                  data.date.split("T")[0]
+              );
+              break;
+            default:
+              alert("An error occurred " + data.msg);
+          }
+        });
+    } else {
+      alert("You dont have enough money!");
+    }
+  }
+};
+
+// İstek yapmak için fetch kullanarak verileri al
+fetch("/api/data", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+  .then(resolve => resolve.json())
+  .then(data => {
+    // Alınan verileri kullanarak HTML elementlerini güncelle
+    const moneyElement = document.getElementById("moneyValue");
+    const nameElement = document.getElementById("nameValue");
+    const ibanElement = document.getElementById("ibanValue");
+    const streetElement = document.getElementById("streetValue");
+    const districtElement = document.getElementById("districtValue");
+    const cityElement = document.getElementById("cityValue");
+    const countryElement = document.getElementById("countryValue");
+    const emailElement = document.getElementById("emailValue");
+    const phoneElement = document.getElementById("phoneValue");
+
+    moneyElement.innerText = parseFloat(data.balance.balance.$numberDecimal).toFixed(2);
+    nameElement.innerText = data.user.name + " " + data.user.surname;
+    ibanElement.innerText = data.balance.iban;
+    streetElement.innerText = data.user.address.street;
+    districtElement.innerText = data.user.address.district;
+    cityElement.innerText = data.user.address.city;
+    countryElement.innerText = data.user.address.country;
+    phoneElement.innerText = data.user.tel;
+    emailElement.innerText = data.user.email;
+
+    const pfp = document.getElementById("pfp");
+
+    const pfpPath = data.user.pfpPath;
+
+// Dosya yolu boş ise veya tanımlanmamışsa varsayılan bir resim kullan
+if (!pfpPath) {
+  pfp.src = "https://api-private.atlassian.com/users/43f179105168e72ca93f2ae0df2dd491/avatar";
+} else {
+  const fileName = pfpPath.split("\\").slice(-1)[0];
+
+  // Resim dosyasının var olup olmadığını kontrol et
+  const img = new Image();
+  img.onload = function() {
+    // Resim dosyası mevcut
+    pfp.src = fileName;
+  };
+  img.onerror = function() {
+    // Resim dosyası mevcut değil, varsayılan resmi kullan
+    pfp.src = "https://api-private.atlassian.com/users/43f179105168e72ca93f2ae0df2dd491/avatar";
+  };
+  img.src = fileName;
+}
+
+    const debtsElement = document.getElementById("debtsPlace");
+
+    // Borçlar için HTML içeriği oluştur
+    data.balance.debts.forEach(item => {
+      debtsElement.innerHTML += `
+        <div class="col-lg-12">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span>Credit Name:</span>
+              <span style="font-weight: 550;">${item.creditname}</span>
+            </li>
+            <li class="list-group-item">
+              <span>Remaining Payment Amount:</span>
+              <span style="font-weight: 550;">${parseFloat(item.sumAmountToPay.$numberDecimal).toFixed(2)}$</span>
+            </li>
+            <li class="list-group-item">
+              <span>Payable: </span>
+              <span style="font-weight: 550;">${parseFloat(item.paymentAmountPerInterval.$numberDecimal).toFixed(2)}</span>
+            </li>
+            <li class="list-group-item">
+              <span>Remaining Month & Payed:</span>
+              <span style="font-weight: 550;">${item.paymentInterval - item.payCount} & ${item.payCount}</span>
+            </li>
+            <li class="list-group-item">
+              <span>Date:</span>
+              <span style="font-weight: 550;">${item.acceptDate}</span>
+            </li>
+            <li class="list-group-item">
+              <span><button onclick="paymonth('${item._id}', '${parseFloat(item.paymentAmountPerInterval.$numberDecimal)}', '${parseFloat(data.balance.balance.$numberDecimal)}')" class="btn btn-primary">Pay This Month</button></span>
+              <span style="font-weight: 550;"><button onclick="payall('${item._id}', '${parseFloat(item.sumAmountToPay.$numberDecimal)}', '${parseFloat(data.balance.balance.$numberDecimal)}')" class="btn btn-success">Pay All</button></span>
+            </li>
+          </ul>
+        </div>
+      `;
+    });
+  })
+  .catch(err => {
+    console.log(`${err}`);
+  });
+
+function copyText() {
+  // IBAN değerini kopyala
+  const iban = document.getElementById("ibanValue").innerText;
+
+  let inputElement = document.createElement("input");
+  inputElement.setAttribute("value", iban);
+  document.body.appendChild(inputElement);
+  inputElement.select();
+  document.execCommand("copy");
+  document.body.removeChild(inputElement);
+
+  alert("Successfully Copied");
+}
+
+    </script>
+    <script src="https://kit.fontawesome.com/f8bdf83e95.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

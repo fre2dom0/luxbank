@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+nav{
+    width: 100%;
+    padding: 20px 0;
+
+    background-color: aqua;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .logo{
+    width: 60%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+nav ul{
+    width: 40%;
+
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li{
+    margin: 0 10px;
+}
+
+nav ul li a{
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: rgb(51, 51, 51);
+    font-size: 19px;
+    transition: all 0.2s ease;
+}
+
+/*main*/
+
+main{
+    width: 100%;
+}
+
+main .form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main form{
+    width: 100%;
+    padding: 20px 450px;
+}
+
+main form .img{
+    display: flex;
+    justify-content: center;
+}
+
+main form img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+main form .inputSec{
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main form .inputSec .inp{
+    margin: 0 20px;
+}
+
+main form .inputSec input{
+    width: 50%;
+}
+
+
+main form .button{
+    display: flex;
+    justify-content: right;
+}
+
+main form .button input{
+    margin: 0 75px;
+    width: 30%;
+}

@@ -1,0 +1,112 @@
+.navrow{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid gray;
+}
+
+nav .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .logo h2{
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .list ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav .list ul li{
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .list ul li a{
+    color: black;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+nav .list ul li a:hover{
+    color: rgb(94, 94, 94);
+    text-decoration: none;
+}
+
+nav .search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .search input{
+    width: 85%;
+    margin-right: 10px;
+    padding: 5px 10px;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+nav .serach button{
+    width: 15%;
+
+}
+
+nav .search button i{
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+nav .search button i:hover{
+    color: rgb(94, 94, 94);
+}
+
+nav .logging{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .logging ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav .logging ul li{
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+nav .logging ul li a{
+    color: black;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+nav .list ul li a:hover{
+    
+    color: rgb(94, 94, 94);
+    text-decoration: none;
+}
+

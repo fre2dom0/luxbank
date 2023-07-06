@@ -1,0 +1,30 @@
+Bu banka projesi NodeJS ile üretilmiş bir projedir. Özellikle back-end'e odaklanılmıştır (front-end'in JavaScript koduyla ilgili çok fazla kod içerir). Tüm kodlar yorum satırlarıyla açıklanmıştır.
+Her dosya düzenli bir şekilde kategorileştirilmiştir.
+
+MongoDB URL'si: mongodb+srv://admin:admin123@luxbank.qfbhy0z.mongodb.net/bank_db?retryWrites=true&w=majority
+url'yi MongoDB Compass'a girerek Database'yi daha iyi yönetebilirsniz.
+
+Collections Bilgileri:
+-users: Kullanıcı bilgileri burada tutulur.
+-userbalances: Kullanıcı parasal bilgileri burada tutulur.
+-credits: Admin panelinden oluşturulan krediler burada tutlur.
+-creditapplications: Kredi başvuruları burada tutulur ve admin panelinden başvuru kabul edilir veya reddedilir.
+-cards: Kullanıcıların kartları burada tutulur.
+-cardapplications: Kullanıcıların kart başvuruları burada tutulur ve admin panelinden başvuru kabul edilir veya reddedilir.
+-adminprocesshistories: Adminlerin yaptığı işlemlerin log'u burada tutulur.
+-moneyprocesshistories: Kullanıcıların para gönderme-alma logu burada tutulur.
+-carousels: Carousel resim yolları burada tutulur.
+
+database dosyasından daha detaylı inceleyebilirsiniz.
+
+/panel URL'siyle erişebileceğiniz bir yönetici panelimiz bulunmaktadır.
+
+Owner Hesabı:
+-ID: 1
+-Parola: 1
+
+Admin Hesabı:
+-ID: 11
+-Parola: 11
+
+Carousel ekleyeceğiniz zaman carousel_images klasöründen yükleyebilirsiniz.

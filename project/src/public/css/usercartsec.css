@@ -1,0 +1,91 @@
+.cardd{
+    position: relative;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(235, 235, 235);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cardInfo .but{
+    font-size: 30px;
+    margin: 0 20px;
+}
+
+.cardElement{
+    position: absolute;
+}
+
+.micro{
+    top: 60px;
+    left: 50px;
+    font-size: 28px;
+}
+
+.wifi{
+    top: 13px;
+    left: 50px;
+    font-size: 23px;
+}
+
+.bankName{
+    bottom: 0px;
+    left: 24px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.indicator{
+    transform: rotate(-90deg);
+    right: -10px;
+    bottom: 15px;
+    margin: 0;
+}
+
+.visa{
+    transform: rotate(-90deg);
+    right: 3px;
+    top: 15px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.master{
+    transform: rotate(-90deg);
+    right: 3px;
+    top: 40px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.cardNumber{
+    bottom: 50px;
+    left: 20px;
+    font-weight: 650;
+}
+.cardDate{
+    bottom: 50px;
+    left: 240px;
+}
+
+.cvv{
+    bottom: 20px;
+    left: 200px;
+    background-color: rgb(255, 251, 0);
+    border-radius: 100%;
+    padding: 3px;
+}
+
+.name{
+    bottom: 23px;
+    left: 20px;
+}
+
+.activeCard{
+    display: block;
+}
+
+.deActiveCard{
+    display: none;
+}
