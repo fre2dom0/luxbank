@@ -28,3 +28,5 @@ Admin Hesabı:
 -Parola: 11
 
 Carousel ekleyeceğiniz zaman carousel_images klasöründen yükleyebilirsiniz.
+
+npm start diyerek projeyi çalıştırabilirsiniz.
